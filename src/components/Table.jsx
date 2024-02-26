@@ -18,7 +18,7 @@ const TableWrapper = ({ data }) => {
                 </thead>
                 <tbody>
                     {data && data.map(d => (
-                        <tr>
+                        <tr key={d.year}>
                             <td>{d.year}</td>
                             <td>{formatter.format(d.initialInvestment)}</td>
                             <td>{formatter.format(d.valueEndOfYear)}</td>

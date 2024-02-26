@@ -3,6 +3,7 @@ import Header from "./Header"
 import UserInput from "./UserInput"
 import TableWrapper from "./Table"
 import { calculateInvestmentResults } from "../util/investment"
+import InvalidDuration from "./InvalidDuration"
 
 
 const MainWrapper = () => {
@@ -33,7 +34,7 @@ const MainWrapper = () => {
         expectedReturn: Number(expectedVal), 
         duration: Number(durationVal)
     })
-    
+
     return (
         <>
             <Header />
@@ -47,7 +48,7 @@ const MainWrapper = () => {
                 changeExpectedHandler={changeExpectedHandler}
                 changeDurationHandler={changeDurationHandler}
             />
-            <TableWrapper data={tableData} />
+            { durationVal >= 1 ? <TableWrapper data={tableData} /> : <InvalidDuration  />  }
         </>
     )
 }
